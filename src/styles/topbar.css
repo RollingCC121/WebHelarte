@@ -13,10 +13,15 @@
 }
 
 .logo-circle {
-  width: 32px;
-  height: 32px;
-  background-color: #f78c8c;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
+  background-image: url('/images/logo.jpg'); /* Ruta desde public */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Puedes agregar un borde si lo deseas */
+  /* border: 2px solid #fff; */
 }
 
 .title {

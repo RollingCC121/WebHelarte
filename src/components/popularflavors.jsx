@@ -1,20 +1,54 @@
-import FlavorCard from './flavorcard';
+import { useEffect, useState } from 'react';
 import '../styles/popularflavors.css';
 
+const banners = [
+  {
+    image: '/images/banner2.jpeg',
+    title: 'Vanilla Bean',
+    description: 'Classic and creamy',
+  },
+  {
+    image: '/images/banner3.jpeg',
+    title: 'Arequipe',
+    description: 'Sweet and caramelized',
+  },
+  {
+    image: '/images/banner1.jpeg',
+    title: 'Chocolate',
+    description: 'Rich and bold',
+  },
+];
+
 export default function PopularFlavors() {
-  const flavors = [
-    { name: "Vanilla Bean", description: "Classic and creamy" },
-    { name: "Strawberry", description: "Sweet and fruity" },
-    { name: "Chocolate", description: "Rich and bold" }
-  ];
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % banners.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleClick = () => {
+    setCurrent((prev) => (prev + 1) % banners.length);
+  };
+
+  const banner = banners[current];
 
   return (
     <section className="popular-flavors">
-      <h2 className="section-title">Popular Flavors</h2>
-      <div className="flavor-list">
-        {flavors.map((flavor, i) => (
-          <FlavorCard key={i} {...flavor} />
-        ))}
+      <div
+        className="banner-image"
+        onClick={handleClick}
+        title="Haz clic para ver el siguiente sabor"
+        style={{
+          backgroundImage: `url(${banner.image})`,
+        }}
+      >
+        <div className="banner-text">
+          <h2 className="banner-title">{banner.title}</h2>
+          <p className="banner-description">{banner.description}</p>
+        </div>
       </div>
     </section>
   );
