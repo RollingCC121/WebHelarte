@@ -1,0 +1,33 @@
+.flavor-card {
+  width: 100%;
+  max-width: 140px;
+  margin: 8px;
+  text-align: center;
+}
+
+.flavor-img {
+  width: 100%;
+  height: 100px;
+  background-color: #ccc;
+  margin-bottom: 8px;
+}
+
+.flavor-name {
+  font-weight: bold;
+  margin: 4px 0;
+}
+
+.flavor-desc {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.flavor-button {
+  padding: 6px 10px;
+  background-color: #eee;
+  border: none;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+}

@@ -1,0 +1,15 @@
+.popular-flavors {
+  margin-top: 24px;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.flavor-list {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
