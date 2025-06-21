@@ -26,9 +26,42 @@
 }
 
 .whatsapp {
-  background-color: #25D366;
+  background-color: #fff;
+  background-image: url('/images/whatsapp.png');
+  background-size: 60% 60%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .instagram {
-  background: radial-gradient(circle at 30% 30%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-color: #fff;
+  background-image: url('/images/instagram.png');
+  background-size: 60% 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.floating-icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+/* Responsive: reduce tamaño y separaciones en pantallas pequeñas */
+@media (max-width: 600px) {
+  .floating-buttons {
+    bottom: 8px;
+    right: 8px;
+    gap: 8px;
+  }
+  .floating-btn {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+  }
+  .floating-icon {
+    width: 24px;
+    height: 24px;
+  }
 }
