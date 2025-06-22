@@ -1,0 +1,71 @@
+.sabores-barra-fija {
+
+  top: 220px; /* Ajusta según la altura del banner */
+  z-index: 50;
+  background: #f9c2c2;
+  padding: 0.5rem 0;
+  width: 100%;
+  max-width: 600px;
+  margin: 4px auto 0 auto; /* Espacio arriba de la barra */
+  box-sizing: border-box;
+}
+
+.sabores-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 0 0.5rem 0.5rem 0.5rem;
+  box-sizing: border-box;
+}
+
+.sabor-link {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 9999px;
+  color: #666;
+  font-size: 0.9rem;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  margin: 0 0.1rem;
+}
+.sabor-link.active {
+  background: #fef08a;
+  color: #a16207;
+  font-weight: bold;
+}
+.sabor-link:hover {
+  background: #e0e7ff;
+  color: #2563eb;
+}
+
+/* Responsive para la barra de filtros */
+@media (max-width: 600px) {
+  .sabores-barra-fija,
+  .sabores-filtros {
+    max-width: 100vw;
+    width: 100vw;
+    min-width: 0;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+  .sabores-barra-fija {
+    top: 150px; /* Ajusta según la altura del banner en móvil */
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .sabores-filtros {
+    gap: 0.3rem;
+    padding: 0 0.2rem 0.2rem 0.2rem;
+  }
+  .sabor-link {
+    font-size: 0.8rem;
+    padding: 0.15rem 0.5rem;
+  }
+}

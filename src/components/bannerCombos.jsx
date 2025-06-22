@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import '../styles/popularflavors.css';
+import '../styles/bannerCombos.css';
 
 const banners = [
   {

@@ -4,7 +4,7 @@
 }
 
 .hero-image {
-  width: 110%;
+  width: 100%;
   max-width: 600px;
   height: 38vw; /* Altura relativa al ancho de la pantalla */
   max-height: 260px;

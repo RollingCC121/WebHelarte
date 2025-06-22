@@ -3,8 +3,8 @@ import React from 'react';
 // Importar componentes
 import TopBar from "./components/topbar";
 import Hero from "./components/hero";
-import PopularFlavors from "./components/popularflavors";
-import Flavors from "./components/flavors";
+import PopularFlavors from "./components/bannerCombos";
+import Flavors from "./components/menuFlavors";
 import FloatingButtons from "./components/floatingbuttons";
 
 // Importar estilos globales
@@ -18,7 +18,7 @@ export default function App() {
       <main className="content">
         <Hero />
         <PopularFlavors />
-        <Flavors />
+        <Flavors/>
       </main>
       <FloatingButtons />
     </div>
