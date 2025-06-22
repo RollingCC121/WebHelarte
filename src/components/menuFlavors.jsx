@@ -2,12 +2,12 @@ import { useState } from "react";
 import "../styles/menuFlavors.css"; 
 
 const saboresData = [
-  { nombre: "Fresa", tipo: "temporada", imagen: "/images/fresa1.png" },
-  { nombre: "Limón", tipo: "agua", imagen: "/images/fresa1.png" },
-  { nombre: "Vainilla", tipo: "leche", imagen: "/images/fresa1.png" },
-  { nombre: "Coco", tipo: "leche", imagen: "/images/fresa1.png" },
-  { nombre: "Maracuyá", tipo: "agua", imagen: "/images/fresa1.png" },
-  { nombre: "Mango", tipo: "temporada", imagen: "/images/fresa1.png" },
+  { nombre: "Fresa", tipo: "temporada", imagen: "/images/fresa.png" },
+  { nombre: "Limón", tipo: "agua", imagen: "/images/limon.png" },
+  { nombre: "Vainilla", tipo: "leche", imagen: "/images/vainilla.png" },
+  { nombre: "Coco", tipo: "leche", imagen: "/images/coco.png" },
+  { nombre: "Maracuyá", tipo: "agua", imagen: "/images/maracuya.png" },
+  { nombre: "Mango", tipo: "temporada", imagen: "/images/mango.png" },
 ];
 
 const tipos = {
@@ -48,20 +48,12 @@ export default function SaboresMenu() {
       </div>
 
       {/* Lista de sabores */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="sabores-grid">
         {saboresFiltrados.map((sabor) => (
-          <div
-            key={sabor.nombre}
-            className="bg-white rounded-3xl shadow-md p-4 flex flex-col items-center transition hover:scale-105"
-          >
-            <img
-              src={sabor.imagen}
-              alt={sabor.nombre}
-              className="w-20 h-20 rounded-full object-cover mb-2 shadow"
-            />
-            <h3 className="font-bold text-lg">{sabor.nombre}</h3>
-            <p className={`text-sm mt-1 ${tipos[sabor.tipo].color}`}>
-              {tipos[sabor.tipo].icono}{" "}
+          <div className="sabor-tarjeta" key={sabor.nombre}>
+            <img src={sabor.imagen} alt={sabor.nombre} />
+            <h3>{sabor.nombre}</h3>
+            <p className={tipos[sabor.tipo].color}>
               {sabor.tipo.charAt(0).toUpperCase() + sabor.tipo.slice(1)}
             </p>
           </div>
