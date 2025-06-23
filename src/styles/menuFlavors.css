@@ -1,8 +1,8 @@
 .sabores-barra-fija {
-  /* position: fixed; permite a la barra desplazarce mientras se hace scroll */
-  top: 220px; /* Ajusta según la altura del banner */
+  /* Barra de filtros debajo del banner */
+  top: 220px; /* Altura desde arriba, ajusta según el banner */
   z-index: 50;
-  background: #f9c2c2;
+  background: #f9c2c2; /* Color de fondo */
   padding: 0.5rem 0;
   width: 100%;
   max-width: 600px;
@@ -10,44 +10,65 @@
   box-sizing: border-box;
 }
 
+/* Contenedor de los enlaces de filtro */
 .sabores-filtros {
-  display: flex;
-  flex-wrap: wrap;
+  display: flex; /* Fila de enlaces */
+  flex-wrap: wrap; /* Permite que bajen de línea si no caben */
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  gap: 0.5rem;
-  justify-content: center;
+  justify-content: space-between; /* Espacia los enlaces a lo largo */
+  align-items: center;
+  gap: 0; /* Sin espacio extra, usamos separadores personalizados */
   padding: 0 0.5rem 0.5rem 0.5rem;
   box-sizing: border-box;
 }
 
+/* Enlace de filtro individual */
 .sabor-link {
   display: inline-block;
   padding: 0.2rem 0.7rem;
-  border-radius: 9999px;
+  border-radius: 9999px; /* Forma de píldora */
   color: #666;
   font-size: 0.9rem;
   background: transparent;
   cursor: pointer;
   text-decoration: none;
   transition: background 0.2s, color 0.2s;
-  margin: 0 0.1rem;
-}
-.sabor-link.active {
-  background: #fef08a;
-  color: #a16207;
-  font-weight: bold;
-}
-.sabor-link:hover {
-  background: #e0e7ff;
-  color: #2563eb;
+  margin: 0; /* Sin margen lateral, separación con | */
+  position: relative;
 }
 
-/* Nueva clase para la cuadrícula de sabores */
+/* Separador "|" entre enlaces de filtro */
+.sabor-link:not(:last-child)::after {
+  content: "|";
+  color: #b3b3b3;
+  position: absolute;
+  right: -1.2rem; /* Ajusta la distancia del separador */
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: normal;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+/* Enlace activo de filtro */
+.sabor-link.active {
+  background: #fef08a; /* Fondo amarillo */
+  color: #a16207;      /* Texto marrón */
+  font-weight: bold;
+}
+
+/* Hover en enlaces de filtro */
+.sabor-link:hover {
+  background: #e0e7ff; /* Fondo azul claro */
+  color: #2563eb;      /* Texto azul */
+}
+
+/* Cuadrícula de tarjetas de sabores */
 .sabores-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
   gap: 1rem;
   width: 100%;
   max-width: 600px;
@@ -56,67 +77,115 @@
   justify-items: center; /* Centra las tarjetas en cada celda */
 }
 
+/* Tarjeta individual de sabor */
 .sabor-tarjeta {
   width: 100%;
-  max-width: 180px; /* Reduce el máximo para evitar desbordes */
-  background: #fff;
+  max-width: 180px;
+  aspect-ratio: 1/1.15; /* Proporción de la tarjeta */
+  background-size: cover; /* Imagen de fondo cubre toda la tarjeta */
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 1.5rem;
   box-shadow: 0 1px 8px rgba(0,0,0,0.06);
-  padding: 1rem 0.5rem 0.8rem 0.5rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
+  justify-content: center;
   box-sizing: border-box;
   transition: transform 0.2s;
+  position: relative;
+  overflow: hidden;
+  padding: 0; /* Sin padding interno */
 }
 
-.sabor-tarjeta img {
-  width: 70px;
-  height: 70px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 0.5rem;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+/* Overlay para el texto de la tarjeta */
+.sabor-tarjeta-overlay {
+  width: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.55) 80%, rgba(0,0,0,0.05) 100%);
+  padding: 0.7rem 0.2rem 0.6rem 0.2rem;
+  text-align: center;
+  color: #fff;
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
 }
 
+/* Título de la tarjeta */
 .sabor-tarjeta h3 {
   font-size: 1rem;
   margin: 0.5rem 0 0.2rem 0;
   text-align: center;
   word-break: break-word;
+  color: #fff;
 }
 
+/* Descripción de la tarjeta */
 .sabor-tarjeta p {
   font-size: 0.9rem;
   margin: 0;
   text-align: center;
   word-break: break-word;
+  color: #fff;
 }
 
-/* Responsive: siempre 2 por fila, ajusta tamaños en móvil */
+/* Imagen de fondo en círculo (no se usa si la imagen es fondo de la tarjeta) */
+.sabor-img-bg {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+/* Responsive: ajusta cuadrícula y tarjetas en móvil */
 @media (max-width: 600px) {
-  .sabores-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.7rem;
-    width: 100vw; /* O el valor que prefieras */
+  .sabores-barra-fija {
     max-width: 100vw;
-    margin: 0;
+    width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .sabores-filtros {
+    max-width: 100vw;
+    width: 100vw;
+    padding: 0 0.2rem 0.2rem 0.2rem;
+  }
+  .sabores-grid {
+    grid-template-columns: repeat(2, 1fr); /* Siempre 2 por fila */
+    gap: 0.7rem;
+    width: 95vw;
+    max-width: 100vw;
+    margin: 0.5rem auto 0 auto;
     padding: 0;
     justify-content: center;
   }
   .sabor-tarjeta {
     max-width: 98vw;
-    padding: 0.7rem 0.2rem 0.6rem 0.2rem;
+    aspect-ratio: 1/1.15;
   }
-  .sabor-tarjeta img {
-    width: 54px;
-    height: 54px;
+  .sabor-tarjeta-overlay {
+    padding: 0.5rem 0.1rem 0.4rem 0.1rem;
   }
   .sabor-tarjeta h3 {
     font-size: 0.95rem;
   }
   .sabor-tarjeta p {
     font-size: 0.8rem;
+  }
+  .sabor-img-bg {
+    width: 48px;
+    height: 40px;
+  }
+  .sabor-link {
+    font-size: 0.8rem;
+    padding: 0.15rem 0.5rem;
+    margin: 0 0.1rem;
+  }
+  .sabor-link:not(:last-child)::after {
+    right: -1.2rem;
+    font-size: 0.9rem;
   }
 }
 

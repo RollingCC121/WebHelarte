@@ -50,12 +50,17 @@ export default function SaboresMenu() {
       {/* Lista de sabores */}
       <div className="sabores-grid">
         {saboresFiltrados.map((sabor) => (
-          <div className="sabor-tarjeta" key={sabor.nombre}>
-            <img src={sabor.imagen} alt={sabor.nombre} />
-            <h3>{sabor.nombre}</h3>
-            <p className={tipos[sabor.tipo].color}>
-              {sabor.tipo.charAt(0).toUpperCase() + sabor.tipo.slice(1)}
-            </p>
+          <div
+            className="sabor-tarjeta"
+            key={sabor.nombre}
+            style={{ backgroundImage: `url(${sabor.imagen})` }}
+          >
+            <div className="sabor-tarjeta-overlay">
+              <h3>{sabor.nombre}</h3>
+              <p className={tipos[sabor.tipo].color}>
+                {sabor.tipo.charAt(0).toUpperCase() + sabor.tipo.slice(1)}
+              </p>
+            </div>
           </div>
         ))}
       </div>
