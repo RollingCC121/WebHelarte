@@ -3,9 +3,10 @@ import React from 'react';
 // Importar componentes
 import TopBar from "./components/topbar";
 import Hero from "./components/hero";
-import PopularFlavors from "./components/bannerCombos";
-import Flavors from "./components/menuFlavors";
+import BannerCombos from "./components/bannerCombos";
+import MenuFlavors from "./components/menuFlavors";
 import FloatingButtons from "./components/floatingbuttons";
+import Footer from "./components/footer";
 
 // Importar estilos globales
 import './index.css';
@@ -17,8 +18,9 @@ export default function App() {
       <TopBar />
       <main className="content">
         <Hero />
-        <PopularFlavors />
-        <Flavors/>
+        <BannerCombos/>
+        <MenuFlavors/>
+        <Footer/>
       </main>
       <FloatingButtons />
     </div>
