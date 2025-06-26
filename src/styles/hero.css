@@ -1,0 +1,46 @@
+.hero {
+  text-align: center;
+  padding: 0 4vw; /* Unidades relativas para mejor respuesta */
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 600px;
+  height: 38vw; /* Altura relativa al ancho de la pantalla */
+  max-height: 260px;
+  min-height: 140px;
+  background-image: url('/images/heroImagen.jpg');
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto 0 auto;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 4vw;
+}
+
+.hero-button {
+  background-color: #e0e0e0;
+  padding: 2vw 5vw;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  min-width: 120px;
+  max-width: 80vw;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+  .hero-image {
+    height: 60vw;
+    min-height: 100px;
+    padding-bottom: 3vw;
+  }
+  .hero-button {
+    font-size: 0.95rem;
+    padding: 3vw 6vw;
+  }
+}

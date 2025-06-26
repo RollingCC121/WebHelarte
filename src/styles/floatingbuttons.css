@@ -1,0 +1,67 @@
+.floating-buttons {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 200;
+}
+
+.floating-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 48px;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
+
+.floating-btn:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp {
+  background-color: #fff;
+  background-image: url('/images/whatsapp.png');
+  background-size: 60% 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.instagram {
+  background-color: #fff;
+  background-image: url('/images/instagram.png');
+  background-size: 60% 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.floating-icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+/* Responsive: reduce tamaño y separaciones en pantallas pequeñas */
+@media (max-width: 600px) {
+  .floating-buttons {
+    bottom: 8px;
+    right: 8px;
+    gap: 8px;
+  }
+  .floating-btn {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+  }
+  .floating-icon {
+    width: 24px;
+    height: 24px;
+  }
+}

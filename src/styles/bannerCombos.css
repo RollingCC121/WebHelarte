@@ -1,0 +1,69 @@
+.popular-flavors {
+  margin-top: 8px;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.flavor-list {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+/* Banner */
+.banner-image {
+  height: 38vw;
+  min-height: 120px;
+  max-height: 220px;
+  width: 100%;
+  max-width: 600px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  margin-bottom: 16px;
+  position: relative;
+  margin: 0 auto;
+  transition: background-image 0.5s;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.banner-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 8px 6px 8px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0));
+  color: #fff;
+}
+
+.banner-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.banner-description {
+  margin: 4px 0 0 0;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+  .banner-image {
+    height: 80vw;
+    min-height: 80px;
+  }
+  .banner-title {
+    font-size: 1rem;
+  }
+  .banner-description {
+    font-size: 0.9rem;
+  }
+}

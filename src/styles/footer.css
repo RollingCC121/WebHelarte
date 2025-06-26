@@ -1,0 +1,40 @@
+.footer {
+  padding: 24px 16px;
+  background-color: #fff0f0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+  border-top: 1px solid #eee;
+  margin-top: 32px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.footer-logo {
+  width: 40px;
+  height: 40px;
+  background-color: #f78c8c;
+  border-radius: 50%;
+}
+
+.footer-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #8b2d2d;
+}
+
+.footer-info p {
+  margin: 4px 0;
+}
+
+.footer-bottom {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: #999;
+}
