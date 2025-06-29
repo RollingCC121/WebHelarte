@@ -1,67 +1,260 @@
-.floating-buttons {
+.floating-buttons-container {
   position: fixed;
-  bottom: 16px;
-  right: 16px;
+  bottom: 20px;
+  right: 20px; /* Cambiado de left a right */
+  z-index: 1000;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  z-index: 200;
+  align-items: center;
+  gap: 8px; /* Reducido de 10px a 8px */
 }
 
-.floating-btn {
-  width: 48px;
-  height: 48px;
+/* Botón principal toggle */
+.main-toggle-btn {
+  width: 50px; /* Reducido de 55px a 50px */
+  height: 50px; /* Reducido de 55px a 50px */
   border-radius: 50%;
-  text-align: center;
-  line-height: 48px;
-  font-size: 20px;
+  border: none;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  text-decoration: none;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1002;
 }
 
-.floating-btn:hover {
+.main-toggle-btn:hover {
   transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
 }
 
-.whatsapp {
-  background-color: #fff;
-  background-image: url('/images/whatsapp.png');
-  background-size: 60% 60%;
-  background-repeat: no-repeat;
-  background-position: center;
+.main-toggle-btn.open {
+  transform: rotate(45deg);
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  box-shadow: 0 4px 20px rgba(255, 107, 107, 0.4);
 }
 
-.instagram {
-  background-color: #fff;
-  background-image: url('/images/instagram.png');
-  background-size: 60% 60%;
-  background-repeat: no-repeat;
-  background-position: center;
+.main-toggle-btn.open:hover {
+  box-shadow: 0 6px 25px rgba(255, 107, 107, 0.6);
 }
 
-.floating-icon {
-  width: 32px;
-  height: 32px;
+/* Botones sociales */
+.social-btn {
+  width: 42px; /* Reducido de 45px a 42px */
+  height: 42px; /* Reducido de 45px a 42px */
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  transform: translateY(20px) scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.social-btn.show {
+  transform: translateY(calc(-55px * var(--index))) scale(1); /* Reducido de -60px a -55px */
+  opacity: 1;
+  pointer-events: all;
+  animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(calc(-55px * var(--index))) scale(1); /* Reducido de -60px a -55px */
+    opacity: 1;
+  }
+}
+
+/* Estilos específicos para cada botón */
+.whatsapp-btn {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(calc(-55px * var(--index))) scale(1.15); /* Reducido de -60px a -55px */
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+.instagram-btn {
+  background: linear-gradient(135deg, #E4405F 0%, #C13584 50%, #833AB4 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(228, 64, 95, 0.4);
+}
+
+.instagram-btn:hover {
+  transform: translateY(calc(-55px * var(--index))) scale(1.15); /* Reducido de -60px a -55px */
+  box-shadow: 0 6px 20px rgba(228, 64, 95, 0.6);
+}
+
+.rappi-btn {
+  background: linear-gradient(135deg, #FF441F 0%, #FF6B35 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 68, 31, 0.4);
+}
+
+.rappi-btn:hover {
+  transform: translateY(calc(-55px * var(--index))) scale(1.15); /* Reducido de -60px a -55px */
+  box-shadow: 0 6px 20px rgba(255, 68, 31, 0.6);
+}
+
+/* Tooltips */
+.btn-tooltip {
+  position: absolute;
+  right: 50px; /* Cambiado de left a right para posicionarlos a la izquierda del botón */
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  transform: translateX(10px); /* Cambiado para animarse desde la derecha */
+  backdrop-filter: blur(10px);
+}
+
+.btn-tooltip::before {
+  content: '';
+  position: absolute;
+  left: 100%; /* Cambiado de right a left */
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-left-color: rgba(0, 0, 0, 0.8); /* Cambiado de border-right-color a border-left-color */
+}
+
+.social-btn:hover .btn-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Overlay para móvil */
+.floating-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: 999;
+}
+
+/* Animaciones adicionales */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.main-toggle-btn {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.main-toggle-btn:hover,
+.main-toggle-btn.open {
+  animation: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .floating-buttons-container {
+    bottom: 20px;
+    right: 15px; /* Cambiado de left a right */
+    gap: 6px; /* Reducido aún más para tablets */
+  }
+  
+  .main-toggle-btn {
+    width: 48px; /* Reducido de 50px a 48px */
+    height: 48px; /* Reducido de 50px a 48px */
+  }
+  
+  .social-btn {
+    width: 40px; /* Reducido de 42px a 40px */
+    height: 40px; /* Reducido de 42px a 40px */
+  }
+  
+  .btn-tooltip {
+    display: none; /* Ocultar tooltips en móvil */
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-buttons-container {
+    bottom: 20px;
+    right: 12px; /* Cambiado de left a right */
+    gap: 5px; /* Aún más juntos en móviles pequeños */
+  }
+  
+  .main-toggle-btn {
+    width: 45px; /* Reducido de 48px a 45px */
+    height: 45px; /* Reducido de 48px a 45px */
+  }
+  
+  .social-btn {
+    width: 38px; /* Reducido de 40px a 38px */
+    height: 38px; /* Reducido de 40px a 38px */
+  }
+  
+  .social-btn.show {
+    transform: translateY(calc(-50px * var(--index))) scale(1); /* Reducido de -55px a -50px */
+  }
+  
+  .whatsapp-btn:hover,
+  .instagram-btn:hover,
+  .rappi-btn:hover {
+    transform: translateY(calc(-50px * var(--index))) scale(1.1);
+  }
+}
+
+/* Efectos adicionales */
+.social-btn:active {
+  transform: translateY(calc(-55px * var(--index))) scale(0.95) !important;
+}
+
+/* Estados de focus para accesibilidad */
+.main-toggle-btn:focus,
+.social-btn:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Modo oscuro (opcional) */
+@media (prefers-color-scheme: dark) {
+  .btn-tooltip {
+    background: rgba(255, 255, 255, 0.9);
+    color: #2d3436;
+  }
+  
+  .btn-tooltip::before {
+    border-left-color: rgba(255, 255, 255, 0.9); /* Cambiado de border-right-color a border-left-color */
+  }
+}
+
+.social-icon {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
   display: block;
-}
-
-/* Responsive: reduce tamaño y separaciones en pantallas pequeñas */
-@media (max-width: 600px) {
-  .floating-buttons {
-    bottom: 8px;
-    right: 8px;
-    gap: 8px;
-  }
-  .floating-btn {
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 16px;
-  }
-  .floating-icon {
-    width: 24px;
-    height: 24px;
-  }
+  margin: 0 auto;
+  pointer-events: none;
 }
