@@ -1,0 +1,120 @@
+.categories {
+  padding: 20px;
+  background: white;
+}
+
+.categories h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #2d3436;
+}
+
+.category-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+  scrollbar-width: thin;
+  scrollbar-color: #fd79a8 #f1f1f1;
+}
+
+.category-tabs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.category-tabs::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2px;
+}
+
+.category-tabs::-webkit-scrollbar-thumb {
+  background: #fd79a8;
+  border-radius: 2px;
+}
+
+.category-tabs::-webkit-scrollbar-thumb:hover {
+  background: #e14d84;
+}
+
+.category-tab {
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: fit-content;
+}
+
+.category-tab.active {
+  background: linear-gradient(45deg, #fd79a8, #fdcb6e);
+  color: white;
+  border-color: #fd79a8;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(253, 121, 168, 0.3);
+}
+
+.category-tab:hover:not(.active) {
+  background: #e9ecef;
+  border-color: #dee2e6;
+}
+
+/* GRID ACTUALIZADO PARA 2 COLUMNAS */
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Siempre 2 columnas */
+  gap: 16px; /* Espaciado uniforme */
+  margin-top: 20px;
+  animation: fadeIn 0.5s ease;
+  width: 100%;
+}
+
+/* Responsive mejorado */
+@media (max-width: 480px) {
+  .categories {
+    padding: 15px;
+  }
+  
+  .products-grid {
+    gap: 12px; /* Menos espacio en móviles pequeños */
+  }
+  
+  .category-tabs {
+    gap: 8px;
+  }
+  
+  .category-tab {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 350px) {
+  .categories {
+    padding: 12px;
+  }
+  
+  .products-grid {
+    gap: 10px; /* Aún menos espacio en pantallas muy pequeñas */
+  }
+}
+
+/* Para pantallas más grandes (tablets) */
+@media (min-width: 768px) {
+  .products-grid {
+    gap: 20px; /* Más espacio en pantallas grandes */
+  }
+}
+
+/* Asegurar que las tarjetas mantengan proporción */
+.products-grid > * {
+  min-height: 280px; /* Altura mínima consistente */
+  display: flex;
+  flex-direction: column;
+}
