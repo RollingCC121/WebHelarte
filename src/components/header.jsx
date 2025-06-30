@@ -3,39 +3,42 @@ import { Menu } from 'lucide-react'
 import '../styles/header.css'
 import CompactDropdownMenu from './dropdownmenu'
 
-const Header = (props) => {
-  const featuredPopsicles = [
-    {
-      id: 1,
-      name: 'Fresa\nCrema',
-      category: 'leche',
-      placeholder: '🍓',
-      gradient: 'linear-gradient(45deg, #ff9ff3, #f368e0)',
-      alt: 'Fresa Crema'
-    },
-    {
-      id: 2,
-      name: 'Limón\nNatural',
-      category: 'agua', 
-      placeholder: '🍋',
-      gradient: 'linear-gradient(45deg, #74b9ff, #0984e3)',
-      alt: 'Limón Natural'
-    },
-    {
-      id: 3,
-      name: 'Chocolate\nIntenso',
-      category: 'leche',
-      placeholder: '🍫', 
-      gradient: 'linear-gradient(45deg, #6c5ce7, #a29bfe)',
-      alt: 'Chocolate'
-    }
-  ]
+// Usa import para imágenes locales (debes tener las imágenes en src/assets o public/images)
+import fresaImg from '../../public/images/fresa.png'
+import limonImg from '../../public/images/limon.png'
+import chocolateImg from '../../public/images/chocolate.png'
 
-  const handlePopsicleClick = (category) => {
-    if (props.onScrollToCategory) {
-      props.onScrollToCategory(category)
-    }
+const featuredPopsicles = [
+  {
+    id: 1,
+    name: 'Fresa\nCrema',
+    category: 'leche',
+    gradient: 'linear-gradient(45deg, #ff9ff3, #f368e0)',
+    imageUrl: fresaImg,
+    alt: 'Fresa Crema'
+  },
+  {
+    id: 2,
+    name: 'Limón\nNatural',
+    category: 'agua',
+    gradient: 'linear-gradient(45deg, #74b9ff, #0984e3)',
+    imageUrl: limonImg,
+    alt: 'Limón Natural'
+  },
+  {
+    id: 3,
+    name: 'Chocolate\nIntenso',
+    category: 'leche',
+    gradient: 'linear-gradient(45deg, #6c5ce7, #a29bfe)',
+    imageUrl: chocolateImg,
+    alt: 'Chocolate'
   }
+];
+
+const Header = (props) => {
+  const handlePopsicleClick = (category) => {
+    // Aquí puedes navegar o filtrar por categoría si lo deseas
+  };
 
   const handleExploreClick = () => {
     const section = document.getElementById('sabores');
@@ -44,18 +47,18 @@ const Header = (props) => {
     }
   };
 
-  const handleMenuClick = () => {
-    console.log('Menu clicked')
-    // Implementar lógica del menú
-  }
-
   return (
     <header className="header" id={props.id}>
       <div className="header-background"></div>
-      
       <nav className="header-nav">
         <div className="logo-brand">
-          <div className="logo">🍦</div>
+          <div className="logo">
+            <img
+              src="/images/helarte.png"
+              alt="Helarte Logo"
+              className="logo-img"
+            />
+          </div>
           <div className="brand-text">
             <h1 className="brand-name">Helarte</h1>
             <p className="brand-subtitle">Artesanal</p>
@@ -78,9 +81,9 @@ const Header = (props) => {
               className="featured-popsicle" 
               onClick={() => handlePopsicleClick(popsicle.category)}
             >
-              <div className="popsicle-preview">
+              <div className={`popsicle-preview ${popsicle.category === 'leche' && popsicle.name.includes('Fresa') ? 'fresa' : popsicle.category === 'agua' ? 'limon' : 'chocolate'}`}>
                 <img 
-                  src="" 
+                  src={popsicle.imageUrl} 
                   alt={popsicle.alt}
                   onError={(e) => {
                     e.target.style.display = 'none'
@@ -90,13 +93,14 @@ const Header = (props) => {
                 <div 
                   className="popsicle-preview-placeholder" 
                   style={{ 
-                    display: 'none', 
-                    background: popsicle.gradient 
+                    display: 'none',
+                    background: `${popsicle.gradient}, url('${popsicle.imageUrl}') center/cover`,
+                    backgroundBlendMode: 'overlay'
                   }}
                 >
-                  {popsicle.placeholder}
                 </div>
               </div>
+              
               <div className="popsicle-label">
                 {popsicle.name.split('\n').map((line, index) => (
                   <React.Fragment key={index}>

@@ -32,20 +32,13 @@
   gap: 12px;
 }
 
-.logo {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(45deg, #ffeaa7, #fdcb6e);
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: #2d3436;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-  font-size: 24px;
-  transform: rotate(-5deg);
-  transition: transform 0.3s ease;
+
+
+.logo-img {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+  display: block;
 }
 
 .logo:hover {
@@ -229,11 +222,9 @@
     padding: 12px 15px;
   }
   
-  .logo {
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
-    border-radius: 12px;
+   .logo-img {
+    width: 100px;   /* Aumenta el ancho */
+    height: 100px;  /* Aumenta el alto */
   }
   
   .brand-name {
