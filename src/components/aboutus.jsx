@@ -25,21 +25,6 @@ const AboutUs = () => {
     }
   ]
 
-  const stats = [
-    {
-      number: '5+',
-      label: 'Años de experiencia'
-    },
-    {
-      number: '50+',
-      label: 'Sabores únicos'
-    },
-    {
-      number: '10K+',
-      label: 'Clientes felices'
-    }
-  ]
-
   return (
     <section className="about-us">
       <h3>🍦 Sobre Nosotros</h3>
@@ -56,15 +41,6 @@ const AboutUs = () => {
               <span className="feature-icon">{feature.icon}</span>
               <div className="feature-title">{feature.title}</div>
               <div className="feature-text">{feature.text}</div>
-            </div>
-          ))}
-        </div>
-
-        <div className="about-stats">
-          {stats.map((stat, index) => (
-            <div key={index} className="stat-item">
-              <span className="stat-number">{stat.number}</span>
-              <span className="stat-label">{stat.label}</span>
             </div>
           ))}
         </div>
