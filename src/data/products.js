@@ -80,7 +80,7 @@ export const productsData = [
     name: 'Matcha Cremoso',
     description: 'Té matcha japonés con leche de almendras',
     price: 4200,
-    category: 'te',
+    category: 'temporada',
     rating: 4.7,
     gradient: 'linear-gradient(45deg, #55a3ff, #74b9ff)',
     badge: { type: 'premium', text: 'Premium' },
@@ -90,10 +90,10 @@ export const productsData = [
 
 // Datos de categorías - ¡ESTE ERA EL EXPORT FALTANTE!
 export const categories = [
-  { id: 'all', name: 'Todos', icon: '🍭' },
+  { id: 'all', name: 'Todos', icon: '🍦' },
   { id: 'agua', name: 'Agua', icon: '💧' },
   { id: 'leche', name: 'Leche', icon: '🥛' },
-  { id: 'te', name: 'Té', icon: '🍃' }
+  { id: 'temporada', name: 'Temporada', icon: '☀️' }
 ]
 
 // Funciones utilitarias (opcional)

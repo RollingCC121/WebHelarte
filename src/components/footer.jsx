@@ -4,26 +4,19 @@ import '../styles/footer.css'
 const Footer = () => {
   const contactInfo = {
     address: {
-      street: 'Calle 85 #15-32',
-      area: 'Zona Rosa, Bogotá',
+      street: 'CRA 49 #52-107',
+      area: 'Junín, Medellín',
       country: 'Colombia'
     },
     contact: {
-      phone: '+57 300 123 4567',
-      email: 'hola@helarte.co',
+      phone: '+573202802760',
+      email: 'helartepaletas@outlook.com',
       website: 'www.helarte.co'
     },
     hours: [
-      { day: 'Lunes - Viernes', time: '10:00 - 22:00' },
-      { day: 'Sábados', time: '09:00 - 23:00' },
-      { day: 'Domingos', time: '11:00 - 21:00' },
-      { day: 'Festivos', time: '12:00 - 20:00' }
+      { day: 'Lunes - domingo', time: '10:00 - 18:00' }
     ],
-    delivery: [
-      { zone: 'Zona Norte', time: '30-45 min' },
-      { zone: 'Zona Sur', time: '45-60 min' },
-      { info: 'Envío gratis desde $15.000', time: '' }
-    ]
+    delivery: []
   }
 
   const socialLinks = [
@@ -41,34 +34,24 @@ const Footer = () => {
       icon: '🚚', 
       label: 'Rappi',
       action: () => openRappi()
-    },
-    { 
-      icon: '👥', 
-      label: 'Facebook',
-      action: () => openFacebook()
     }
   ]
 
   const openWhatsApp = () => {
-    const phoneNumber = '573001234567'
+    const phoneNumber = '573202802760'
     const message = encodeURIComponent('¡Hola! Me interesan sus helados artesanales de Helarte 🍦. Me gustaría conocer más sobre sus productos y precios.')
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`
     window.open(whatsappUrl, '_blank')
   }
 
   const openInstagram = () => {
-    const instagramUrl = 'https://instagram.com/helarte_oficial'
+    const instagramUrl = 'https://instagram.com/helarte_paletas'
     window.open(instagramUrl, '_blank')
   }
 
   const openRappi = () => {
-    const rappiUrl = 'https://www.rappi.com/stores/helarte'
+    const rappiUrl = 'https://www.rappi.com.co/tiendas/900433644-helartepaletasartesanales-mt-nc'
     window.open(rappiUrl, '_blank')
-  }
-
-  const openFacebook = () => {
-    const facebookUrl = 'https://facebook.com/helarte.oficial'
-    window.open(facebookUrl, '_blank')
   }
 
   return (
@@ -103,21 +86,13 @@ const Footer = () => {
               <span>{schedule.time}</span>
             </div>
           ))}
-
-          <h4 style={{ marginTop: '20px' }}>🚚 Delivery</h4>
-          {contactInfo.delivery.map((delivery, index) => (
-            <p key={index} style={{ fontSize: '12px' }}>
-              {delivery.zone && `${delivery.zone}: ${delivery.time}`}
-              {delivery.info && delivery.info}
-            </p>
-          ))}
         </div>
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; 2024 Helarte. Todos los derechos reservados.</p>
-        <p>Helados artesanales hechos con amor en Bogotá 🇨🇴</p>
-        
+        <p>&copy; 2025 Helarte. Todos los derechos reservados.</p>
+        <p>Helados artesanales hechos con amor en Medellín 🇨🇴</p>
+
         <div className="social-links">
           {socialLinks.map((social, index) => (
             <button

@@ -39,19 +39,19 @@ const FloatingButtons = () => {
   ]
 
   function handleWhatsApp() {
-    const phoneNumber = '573001234567'
+    const phoneNumber = '573202802760'
     const message = encodeURIComponent('¡Hola! Me interesan sus helados artesanales de Helarte 🍦')
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`
     window.open(whatsappUrl, '_blank')
   }
 
   function handleInstagram() {
-    const instagramUrl = 'https://instagram.com/helarte_oficial'
+    const instagramUrl = 'https://instagram.com/helarte_paletas'
     window.open(instagramUrl, '_blank')
   }
 
   function handleRappi() {
-    const rappiUrl = 'https://www.rappi.com/stores/helarte'
+    const rappiUrl = 'https://www.rappi.com.co/tiendas/900433644-helartepaletasartesanales-mt-nc'
     window.open(rappiUrl, '_blank')
   }
 
