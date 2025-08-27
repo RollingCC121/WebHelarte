@@ -3,18 +3,13 @@ import { Menu } from 'lucide-react'
 import '../styles/header.css'
 import CompactDropdownMenu from './dropdownmenu'
 
-// Usa import para imágenes locales (debes tener las imágenes en src/assets o public/images)
-import fresaImg from '../../public/images/fresa.png'
-import limonImg from '../../public/images/limon.png'
-import chocolateImg from '../../public/images/chocolate.png'
-
 const featuredPopsicles = [
   {
     id: 1,
     name: 'Fresa\nCrema',
     category: 'leche',
     gradient: 'linear-gradient(45deg, #ff9ff3, #f368e0)',
-    imageUrl: fresaImg,
+    imageUrl: '/images/fresa.png',
     alt: 'Fresa Crema'
   },
   {
@@ -22,7 +17,7 @@ const featuredPopsicles = [
     name: 'Limón\nNatural',
     category: 'agua',
     gradient: 'linear-gradient(45deg, #74b9ff, #0984e3)',
-    imageUrl: limonImg,
+    imageUrl: '/images/limon.png',
     alt: 'Limón Natural'
   },
   {
@@ -30,7 +25,7 @@ const featuredPopsicles = [
     name: 'Chocolate\nIntenso',
     category: 'leche',
     gradient: 'linear-gradient(45deg, #6c5ce7, #a29bfe)',
-    imageUrl: chocolateImg,
+    imageUrl: '/images/chocolate.png',
     alt: 'Chocolate'
   }
 ];
@@ -78,29 +73,13 @@ const Header = (props) => {
           {featuredPopsicles.map((popsicle) => (
             <div 
               key={popsicle.id}
-              className="featured-popsicle" 
+              className="featured-popsicle"
               onClick={() => handlePopsicleClick(popsicle.category)}
+              style={{
+                background: `${popsicle.gradient}, url(${popsicle.imageUrl}) center/cover`,
+                backgroundBlendMode: 'overlay'
+              }}
             >
-              <div className={`popsicle-preview ${popsicle.category === 'leche' && popsicle.name.includes('Fresa') ? 'fresa' : popsicle.category === 'agua' ? 'limon' : 'chocolate'}`}>
-                <img 
-                  src={popsicle.imageUrl} 
-                  alt={popsicle.alt}
-                  onError={(e) => {
-                    e.target.style.display = 'none'
-                    e.target.nextElementSibling.style.display = 'flex'
-                  }}
-                />
-                <div 
-                  className="popsicle-preview-placeholder" 
-                  style={{ 
-                    display: 'none',
-                    background: `${popsicle.gradient}, url('${popsicle.imageUrl}') center/cover`,
-                    backgroundBlendMode: 'overlay'
-                  }}
-                >
-                </div>
-              </div>
-              
               <div className="popsicle-label">
                 {popsicle.name.split('\n').map((line, index) => (
                   <React.Fragment key={index}>

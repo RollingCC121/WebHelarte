@@ -4,25 +4,20 @@ import '../styles/aboutus.css'
 const AboutUs = () => {
   const features = [
     {
-      icon: '🌱',
-      title: '100% Natural',
-      text: 'Sin conservantes ni químicos'
+      icon: '🌟',
+      title: 'Visión',
+      text: 'Queremos convertirnos en la heladería artesanal más grande de la ciudad, ofreciendo sabores auténticos que crean momentos inolvidables.'
     },
     {
-      icon: '👨‍🍳',
-      title: 'Artesanal',
-      text: 'Hecho a mano diariamente'
+      icon: '💛',
+      title: 'Misión',
+      text: 'En Helarte, fusionamos sabor y arte en cada paleta, utilizando ingredientes naturales y sostenibles para brindarte una experiencia única, cuidando siempre del planeta y de nuestros clientes.'
     },
     {
-      icon: '🚚',
-      title: 'Entrega Rápida',
-      text: 'Llevamos frescura a tu puerta'
+      icon: '📢',
+      
+      text: '¡Únete a nuestra historia y disfruta de la magia de lo artesanal! 🌱🍨💫'
     },
-    {
-      icon: '⭐',
-      title: 'Premium',
-      text: 'Ingredientes de primera calidad'
-    }
   ]
 
   return (
